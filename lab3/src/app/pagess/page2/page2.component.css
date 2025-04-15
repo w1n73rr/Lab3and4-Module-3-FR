@@ -1,0 +1,107 @@
+/* Общие стили для формы */
+.form-container {
+    max-width: 500px;
+    margin: 20px auto;
+    padding: 25px;
+    background-color: #f8f9fa;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  .form-group {
+    margin-bottom: 20px;
+  }
+  
+  label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+    color: #495057;
+  }
+  
+  input {
+    width: 100%;
+    padding: 10px 15px;
+    border: 1px solid #ced4da;
+    border-radius: 6px;
+    font-size: 16px;
+    transition: all 0.3s;
+  }
+  
+  input.ng-invalid.ng-touched {
+    border-color: #dc3545;
+  }
+  
+  input:focus {
+    border-color: #4dabf7;
+    outline: 0;
+    box-shadow: 0 0 0 4px rgba(77, 171, 247, 0.3);
+  }
+  
+  button {
+    background-color: #28a745;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 500;
+    transition: all 0.3s;
+    width: 100%;
+  }
+  
+  button:hover {
+    background-color: #218838;
+    transform: translateY(-2px);
+  }
+  
+  button:disabled {
+    background-color: #94d3a2;
+    transform: none;
+    cursor: not-allowed;
+  }
+  
+  /* Стили для списка пользователей */
+  .users-container {
+    max-width: 600px;
+    margin: 40px auto;
+    padding: 20px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  }
+  
+  .users-container h3 {
+    color: #212529;
+    text-align: center;
+    margin-bottom: 25px;
+    font-size: 24px;
+  }
+  
+  .users-list {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .users-list li {
+    background-color: #f1f3f5;
+    padding: 12px 20px;
+    margin-bottom: 10px;
+    border-radius: 6px;
+    font-size: 16px;
+    transition: transform 0.2s;
+  }
+  
+  .users-list li:hover {
+    transform: translateX(5px);
+    background-color: #e9ecef;
+  }
+  
+  /* Стили для сообщений об ошибках */
+  .error-message {
+    color: #dc3545;
+    font-size: 14px;
+    margin-top: 8px;
+    padding-left: 5px;
+  }

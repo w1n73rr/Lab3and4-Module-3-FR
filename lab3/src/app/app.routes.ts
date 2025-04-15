@@ -8,7 +8,7 @@ import { confirmOutGuard } from './core/guards/confirm-out.guard';
 
 export const routes: Routes = [
     { path: '', component: Page1Component },
-      { path: 'page/:id', component: Page2Component, canActivate: [confirmInGuard]},
+      { path: 'page2', component: Page2Component, canActivate: [confirmInGuard]},
       { path: 'page3', component: Page3Component, canDeactivate:[confirmOutGuard] },
       { path: '**', component: NotFoundComponent }
 ];

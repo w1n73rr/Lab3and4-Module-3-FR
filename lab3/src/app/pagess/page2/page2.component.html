@@ -1,7 +1,32 @@
-<p>page2 works!</p>
-<p>page2 works!</p>
-<p>page2 works!</p>
-<p>page2 works!</p>
-<p>page2 works!</p>
+<div class="form-container">
+    <form [formGroup]="myForm" (ngSubmit)="onSubmit()">
+        <div class="form-group">
+            <label>Имя</label>
+            <input name="userName" formControlName="userName" />
+            <div class="error-message" 
+                 *ngIf="myForm.controls['userName'].invalid && myForm.controls['userName'].touched">
+                Не указано Имя!
+            </div>
+        </div>
 
-<button (click)="goMain()">Вернуться на 1 страницу</button>
+        <div class="form-group">
+            <label>Фамилия</label>
+            <input name="userSurname" formControlName="userSurname" />
+            <div class="error-message" 
+                 *ngIf="myForm.controls['userSurname'].invalid && myForm.controls['userSurname'].touched">
+                Не указана Фамилия!
+            </div>
+        </div>
+
+        <button type="submit" [disabled]="myForm.invalid">Отправить</button>
+    </form>
+</div>
+
+<div class="users-container">
+    <h3>Зарегистрированные пользователи</h3>
+    <ul class="users-list">
+        <li *ngFor="let user of users">
+            {{user.userSurname}} {{user.userName}}
+        </li>
+    </ul>
+</div>

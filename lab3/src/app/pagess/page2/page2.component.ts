@@ -1,32 +1,30 @@
-import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute,Router } from '@angular/router';
-import { switchMap } from 'rxjs';
-import { RouterModule } from '@angular/router';
+import { Component } from '@angular/core';
+import { FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
+import { CommonModule } from '@angular/common';
+
 @Component({
   selector: 'app-page2',
-  imports: [RouterModule],
+  standalone: true,
+  imports: [CommonModule, FormsModule, ReactiveFormsModule],
   templateUrl: './page2.component.html',
-  styleUrl: './page2.component.css',
-  
+  styleUrls: ['./page2.component.css']
 })
-export class Page2Component implements OnInit {
-  title='page';
-  id:number|undefined;
+export class Page2Component {
+  users: any[] = []; 
 
-  constructor(private activateRoute: ActivatedRoute,
-              private router: Router
-  ){
-    //this.id = activateRoute.snapshot.params['id'];
-  }
+  myForm: FormGroup;
 
-  ngOnInit(){
-    this.activateRoute.paramMap.subscribe(params => {
-      this.id = +params.get('id')!;
+  constructor() {
+    this.myForm = new FormGroup({
+      "userName": new FormControl('', Validators.required),
+      "userSurname": new FormControl('', Validators.required)
     });
   }
 
-  goMain():void{
-    //this.router.navigate(['/']);
-    this.router.navigateByUrl('/');
-  } 
+  onSubmit() {
+    if (this.myForm.valid) {
+      this.users.push(this.myForm.value);
+      this.myForm.reset();
+    }
+  }
 }
